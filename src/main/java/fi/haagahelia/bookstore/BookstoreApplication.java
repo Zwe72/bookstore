@@ -41,6 +41,21 @@ public class BookstoreApplication {
 				"9780134685991",
 				45.50
 			));
+			repository.save(new Book(
+                "Naruto Vol.1",
+                "Masashi Kishimoto",
+                2000,
+                "1111111111",
+                9.90
+            ));
+
+            repository.save(new Book(
+                "One Piece Vol.1",
+                "Eiichiro Oda",
+                1997,
+                "2222222222",
+                10.50
+            ));
 
 
 		};

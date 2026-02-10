@@ -6,6 +6,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import fi.haagahelia.bookstore.model.BookRepository;
+import org.springframework.web.bind.annotation.GetMapping;
 
 
 
@@ -16,10 +17,12 @@ public class BookController {
         this.repository = repository;
     }
     
-    //@requestMapping(value() = {"/", "/booklist"})
-    //public String booklist(Model model) {
-        //model.addAttribute("books", repository.findAll());
-    //}
+    @GetMapping("/booklist")
+    public String bookList(Model model) {
+        model.addAttribute("books", repository.findAll());
+        return "booklist";
+    }
+    
     
     @RequestMapping("/index")
         public String showIndex() {
