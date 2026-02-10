@@ -1,5 +1,11 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <link type="text/css"
+        rel="stylesheet"
+        href="/css/bootstrap.min.css"
+        th:href="@{/css/bootstrap.min.css}" />
+    </head>
 <body>
 
 <h1>Add Book</h1>
@@ -12,7 +18,7 @@
     ISBN: <input type="text" th:field="*{isbn}" /><br><br>
     Year: <input type="number" th:field="*{publicationYear}" /><br><br>
 
-    <button type="submit">Save</button>
+    <button type="submit" class="btn btn-success">Save</button>
 </form>
     
 </body>
