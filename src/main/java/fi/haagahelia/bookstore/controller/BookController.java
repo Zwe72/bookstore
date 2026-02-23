@@ -58,6 +58,7 @@ public class BookController {
     public String editBook(@PathVariable() Long id, Model model) {
         Book book = repository.findById(id).orElse(null);
         model.addAttribute("book", book);
+        model.addAttribute("categories", catrepository.findAll());
         return "addbook";
     }
     

@@ -24,9 +24,14 @@ public class BookstoreApplication {
 	 {
 		return (args) -> {
 
-			Category programming = new Category("Programming");
-        Category fiction = new Category("Fiction");
-        Category manga = new Category("Manga");
+			Category programming = new Category("programming");
+			categoryRepository.save(programming);
+
+        	Category fiction = new Category("fiction");
+			categoryRepository.save(fiction);
+
+        	Category manga = new Category("manga");
+			categoryRepository.save(manga);
 			
 			bookRepository.save(new Book(
 				"Clean Code", 
