@@ -7,6 +7,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import fi.haagahelia.bookstore.model.Book;
 import fi.haagahelia.bookstore.model.BookRepository;
+import fi.haagahelia.bookstore.model.Category;
+import fi.haagahelia.bookstore.model.CategoryRepository;
+
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -19,8 +22,11 @@ import org.springframework.web.bind.annotation.PostMapping;
 @Controller
 public class BookController {
     private BookRepository repository;
-    public BookController(BookRepository repository) {
+    private CategoryRepository catrepository;
+
+    public BookController(BookRepository repository, CategoryRepository catrepository) {
         this.repository = repository;
+        this.catrepository = catrepository;
     }
     
     @GetMapping("/booklist")
@@ -32,6 +38,7 @@ public class BookController {
     @GetMapping("/addbook")
     public String addBook(Model model) {
         model.addAttribute("book", new Book());
+        model.addAttribute("categories", catrepository.findAll() );
         return "addbook";
     }
 

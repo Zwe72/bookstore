@@ -31,6 +31,7 @@ public class Book {
         this.publicationYear = publicationYear;
         this.isbn = isbn;
         this.price = price;
+        this.category = category;
     }
     
     public Long getId() {
@@ -41,9 +42,6 @@ public class Book {
     }
     public String getAuthor() {
         return author;
-    }
-    public Book(Category category) {
-        this.category = category;
     }
 
     public int getPublicationYear() {

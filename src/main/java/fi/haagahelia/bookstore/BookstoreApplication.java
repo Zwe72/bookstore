@@ -1,5 +1,8 @@
 package fi.haagahelia.bookstore;
 
+import fi.haagahelia.bookstore.model.Category;
+import fi.haagahelia.bookstore.model.CategoryRepository;
+
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -16,45 +19,40 @@ public class BookstoreApplication {
 	}
 
 	@Bean
-	public CommandLineRunner demo(BookRepository repository) {
+	public CommandLineRunner demo(BookRepository bookRepository,
+								CategoryRepository categoryRepository)
+	 {
 		return (args) -> {
-			repository.save(new Book(
+
+			Category programming = new Category("Programming");
+        Category fiction = new Category("Fiction");
+        Category manga = new Category("Manga");
+			
+			bookRepository.save(new Book(
 				"Clean Code", 
 				"Robert C. Martin",
 				2008,
 				"9780132350884",
-				39.90
+				39.90,
+				programming
 			));
 
-			repository.save(new Book(
-				"Spring in Action", 
-				"Craig Walls",
-				2022,
-				"9781617297571",
-				49.90
+			bookRepository.save(new Book(
+			"The Hobbit",
+        	"J.R.R. Tolkien",
+        1937,
+        	"9780547928227",
+        	14.90,
+        fiction
 			));
 
-			repository.save(new Book(
-				"Effective Java", 
-				"Joshua Bloch",
-				2018,
-				"9780134685991",
-				45.50
-			));
-			repository.save(new Book(
+			bookRepository.save(new Book(
                 "Naruto Vol.1",
                 "Masashi Kishimoto",
                 2000,
                 "1111111111",
-                9.90
-            ));
-
-            repository.save(new Book(
-                "One Piece Vol.1",
-                "Eiichiro Oda",
-                1997,
-                "2222222222",
-                10.50
+                9.90,
+				manga
             ));
 
 
