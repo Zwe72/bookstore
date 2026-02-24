@@ -2,6 +2,8 @@ package fi.haagahelia.bookstore;
 
 import fi.haagahelia.bookstore.model.Category;
 import fi.haagahelia.bookstore.model.CategoryRepository;
+import fi.haagahelia.bookstore.model.Customer;
+import fi.haagahelia.bookstore.model.CustomerRepository;
 
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -63,5 +65,15 @@ public class BookstoreApplication {
 
 		};
 	}
+	@Bean
+    public CommandLineRunner demo2(CustomerRepository repository) {
+        return (args) -> {
+
+            repository.save(new Customer("Emma Virtanen", "emma.virtanen@gmail.com"));
+            repository.save(new Customer("Mikko Laine", "mikko.laine@hotmail.com"));
+            repository.save(new Customer("Sara Nieminen", "sara.nieminen@student.fi"));
+
+        };
+    }
 
 }

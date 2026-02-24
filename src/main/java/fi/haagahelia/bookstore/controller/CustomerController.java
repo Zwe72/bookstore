@@ -3,8 +3,6 @@ package fi.haagahelia.bookstore.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.RequestMapping;
-
 import fi.haagahelia.bookstore.model.Customer;
 import fi.haagahelia.bookstore.model.CustomerRepository;
 
