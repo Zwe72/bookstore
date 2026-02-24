@@ -10,7 +10,7 @@
 
 <h1>Add Book</h1>
 
-<form th:action="@{/save}" th:object="${book}" method="post">
+<form th:action="@{/savebook}" th:object="${book}" method="post">
 
     <input type="hidden" th:field="*{id}" />
     Author: <input type="text" th:field="*{author}" /><br><br>

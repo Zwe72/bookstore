@@ -7,7 +7,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import fi.haagahelia.bookstore.model.Book;
 import fi.haagahelia.bookstore.model.BookRepository;
-import fi.haagahelia.bookstore.model.Category;
 import fi.haagahelia.bookstore.model.CategoryRepository;
 
 import org.springframework.web.bind.annotation.GetMapping;
@@ -42,19 +41,19 @@ public class BookController {
         return "addbook";
     }
 
-    @PostMapping("/save")
+    @PostMapping("/savebook")
     public String save(Book book) {
         repository.save(book);
         return "redirect:/booklist";
     }
 
-    @GetMapping("/delete/{id}")
+    @GetMapping("/deletebook/{id}")
     public String deleteBook(@PathVariable() Long id) {
         repository.deleteById(id);
         return "redirect:/booklist";
     }
     
-    @GetMapping("/edit/{id}")
+    @GetMapping("/editbook/{id}")
     public String editBook(@PathVariable() Long id, Model model) {
         Book book = repository.findById(id).orElse(null);
         model.addAttribute("book", book);
