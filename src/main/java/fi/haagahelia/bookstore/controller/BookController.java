@@ -3,7 +3,6 @@ package fi.haagahelia.bookstore.controller;
 
 import java.util.List;
 import java.util.Optional;
-import java.util.concurrent.atomic.AtomicLong;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -19,7 +18,6 @@ import jakarta.persistence.ManyToOne;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
@@ -34,7 +32,6 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 public class BookController {
     private BookRepository repository;
     private CategoryRepository catrepository;
-    private final AtomicLong counter = new AtomicLong();
 
     public BookController(BookRepository repository, CategoryRepository catrepository) {
         this.repository = repository;
