@@ -86,6 +86,11 @@ public class BookController {
         model.addAttribute("categories", catrepository.findAll());
         return "addbook";
     }
+
+    @GetMapping("/login")
+    public String login() {
+        return "login";
+    }
     
     
     @RequestMapping("/index")
