@@ -10,6 +10,8 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
+import fi.haagahelia.bookstore.model.AppUser;
+import fi.haagahelia.bookstore.model.AppUserRepository;
 import fi.haagahelia.bookstore.model.Book;
 import fi.haagahelia.bookstore.model.BookRepository;
 
@@ -66,14 +68,23 @@ public class BookstoreApplication {
 		};
 	}
 	@Bean
-    public CommandLineRunner demo2(CustomerRepository repository) {
+    public CommandLineRunner demo2(AppUserRepository urepository) {
         return (args) -> {
 
-            repository.save(new Customer("Emma Virtanen", "emma.virtanen@gmail.com"));
-            repository.save(new Customer("Mikko Laine", "mikko.laine@hotmail.com"));
-            repository.save(new Customer("Sara Nieminen", "sara.nieminen@student.fi"));
+        urepository.save(new AppUser(
+            "user",
+            "$2a$10$0MMwY.IQqpsVc1jC8u7IJ.2rT8b0Cd3b3sfIBGV2zfgnPGtT4r0.C",
+            "user@email.com",
+            "ROLE_USER"
+        ));
 
-        };
-    }
+        urepository.save(new AppUser(
+            "admin",
+            "$2a$10$0MMwY.IQqpsVc1jC8u7IJ.2rT8b0Cd3b3sfIBGV2zfgnPGtT4r0.C",
+            "admin@email.com",
+            "ROLE_ADMIN"
+        ));
+    };
+}
 
 }
