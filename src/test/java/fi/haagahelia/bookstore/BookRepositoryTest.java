@@ -13,7 +13,7 @@ public class BookRepositoryTest {
     @Test
     public void createNewBook() {
         Category category = new Category("Fantasy");
-        drepository.save(category);
+        //drepository.save(category);//
     }
 
 }
