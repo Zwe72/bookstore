@@ -2,8 +2,6 @@ package fi.haagahelia.bookstore;
 
 import fi.haagahelia.bookstore.model.Category;
 import fi.haagahelia.bookstore.model.CategoryRepository;
-import fi.haagahelia.bookstore.model.Customer;
-import fi.haagahelia.bookstore.model.CustomerRepository;
 
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
